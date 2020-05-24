@@ -6,16 +6,15 @@ Built with Python, Flask, and Docker
 ### Components
 __1. User Server (US):__
   - running on port __8080__
-  - accepts `GET` HTTP requests at path  
+  - accepts `GET` HTTP requests at path
     `/fibonacci?hostname={FS_HOSTNAME}&fs_port={FS_PORT}&number={N}&as_ip={AS_IP}&as_port={AS_PORT}`
-  - if any parameters are missing, US returns HTTP code `400`, indicating bad request.  
-  - if request succeed, US returns HTTP code `200` with fibonacci number of sequence number `N`.  
-  - US need to query AS to learn IP address of `FS_HOSTNAME`.  
+  - if any parameters are missing, US returns HTTP code `400`, indicating bad request.
+  - if request succeed, US returns HTTP code `200` with fibonacci number of sequence number `N`.
+  - US need to query AS to learn IP address of `FS_HOSTNAME`.
 
 __2. Fibonacci Server (FS):__
-  - running on port __9090__  
-  - provides Fibonacci number for a given sequence number `N`.  
-
+  - running on port __9090__
+  - provides Fibonacci number for a given sequence number `N`.
   - 2.1 Registration to AS
     - accepts a `PUT` HTTP request at path `/register` where request body contains following JSON object.
       ```
@@ -34,7 +33,6 @@ __2. Fibonacci Server (FS):__
       TTL=10
       ```
     - if the registration succeed, returns a HTTP response with HTTP code `201`
-
   - 2.2 Calculate Fibonacci Number  
     - accepts `GET` HTTP request at path `/fibonacci?number={N}`, and returns Fibonacci number for sequence number `N`
     - if it succeed, returns HTTP code `200`.
