@@ -69,3 +69,24 @@ __3. Authoritative Server (AS)__
   5. FS returns answer for the fibonacci number with `200` code
   6. US returns the result to user (browser).
 
+## Getting Started
+These instructions will get you a copy of the project up and running on your local machine.  
+
+### Prerequisites
+- python, flask
+- docker
+
+### Installing
+1. clone the project to your local machine 
+2. built the image of each server:  
+   `docker build -t {user}/{server_name}:latest .`
+3. create a Docker network:  
+   `docker network create {netwrk_name}`
+4. run each container:  
+   `docker run --network {netwrk_name} --name {container_name} -p {port}:{port}/udp -it {user}/{server_name}:latest`
+   
+### Testing
+1. learn the IP address of containers:  
+   `docker inspect {netwrk_name}`
+2. `PUT` a registration request to FS
+3. change variables in `test.py` accordingly and run it
