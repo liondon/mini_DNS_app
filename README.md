@@ -6,7 +6,7 @@ Built with Python, Flask, and Docker
 ### Components
 __1. User Server (US):__
   - running on port __8080__
-  - accepts `GET` HTTP requests at path
+  - accepts `GET` HTTP requests at path  
     `/fibonacci?hostname={FS_HOSTNAME}&fs_port={FS_PORT}&number={N}&as_ip={AS_IP}&as_port={AS_PORT}`
   - if any parameters are missing, US returns HTTP code `400`, indicating bad request.
   - if request succeed, US returns HTTP code `200` with fibonacci number of sequence number `N`.
