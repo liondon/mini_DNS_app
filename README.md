@@ -1,4 +1,4 @@
-# mini_DNS_app
+# Miniature Authoritative DNS Server for Network Applications
 A system of three servers that illustrate simplified DNS service.  
 Built with Python, Flask, and Docker  
 
